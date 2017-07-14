@@ -1,0 +1,7 @@
+Flask
+Flask-RESTful
+flask_cors
+requests>=2.13.0
+pyyaml
+dpath
+flask_restful_swagger

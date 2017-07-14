@@ -1,0 +1,5 @@
+---
+flask_tcp_ip: 0.0.0.0
+flask_tcp_port: 80
+flask_use_debug: no
+logging_level: info
