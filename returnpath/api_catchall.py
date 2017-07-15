@@ -1,6 +1,7 @@
 from returnpath import api
 from flask_restful import Resource
 from flask import request
+import socket
 import logging
 
 
@@ -10,6 +11,8 @@ class ApiCatchAll(Resource):
     def get(self, path=None):
         if path is None:
             path = '/'
+
+        node_name = socket.gethostname()
 
         out_headers = {}
         headers = request.headers.environ
@@ -29,7 +32,8 @@ class ApiCatchAll(Resource):
 
         return_obj = {
             'path': path,
-            'headers': out_headers
+            'headers': out_headers,
+            'local_computer_name': node_name
         }
         return return_obj
 
