@@ -11,4 +11,4 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 80
 ENTRYPOINT ["python"]
-CMD ["runserver.py"]
+CMD ["web.py"]
