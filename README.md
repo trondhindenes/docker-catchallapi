@@ -6,6 +6,9 @@ By default it listens on port 80.
 ### Supported http methods:
 GET and POST
 
+### Get it on docker hub:
+https://hub.docker.com/r/trondhindenes/docker-catchallapi/
+
 ### Supported things:
 - path
 - query string
