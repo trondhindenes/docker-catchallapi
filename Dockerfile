@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 MAINTAINER trond
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
