@@ -1,7 +1,7 @@
 # docker-catchallapi
 
 Simple rest api which responds with lots of information about the incoming request. Use it to troubleshoot/test microservice routing and other things.
-By default it listens on port 80, use docker port mapping if you want another.
+By default it listens on port 80, can be overriden by setting the LISTEN_PORT environment variable.
 
 ### Supported http methods:
 GET and POST

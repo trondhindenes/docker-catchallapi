@@ -1,4 +1,5 @@
 from returnpath import app, config
+import os
 import cherrypy
 
 if __name__ == '__main__':
@@ -11,9 +12,11 @@ if __name__ == '__main__':
     # Instantiate a new server object
     server = cherrypy._cpserver.Server()
 
+    str_listen_port = os.getenv('LISTEN_PORT', '80')
+
     # Configure the server object
     server.socket_host = "0.0.0.0"
-    server.socket_port = 80
+    server.socket_port = int(str_listen_port)
     server.thread_pool = 30
 
     # For SSL Support
