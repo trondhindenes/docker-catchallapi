@@ -1,13 +1,11 @@
 import os
 import sys
-from ConfigParser import SafeConfigParser
 import json
 import yaml
 import dpath
 
 #This is just a helper to find the location of config.ini and parse it
 class ConfigHelper(object):
-
     @staticmethod
     def get_config_path(config_file_name='config.json'):
         here = os.path.dirname(__file__)

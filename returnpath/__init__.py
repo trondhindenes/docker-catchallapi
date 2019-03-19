@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
-from config_helper import ConfigHelper
+from returnpath.config_helper import ConfigHelper
 import sys
-import log
+import returnpath.log
 
 this_path = sys.path[0]
 
@@ -19,5 +19,5 @@ logger = log.setup_custom_logger(appconfig['logging_level'])
 
 app.config['BUNDLE_ERRORS'] = True
 api = Api(app)
-from api_catchall import ApiCatchAll
+from returnpath.api_catchall import ApiCatchAll
 

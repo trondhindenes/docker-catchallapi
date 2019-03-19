@@ -1,14 +1,11 @@
-FROM ubuntu:16.04
+FROM python:3
 MAINTAINER trond
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential python-software-properties libssl-dev libffi-dev
-RUN pip install --upgrade pip
-COPY . /app
-RUN cp /app/config-prod.yml /app/config.yml
-RUN rm /app/config-prod.yml
 WORKDIR /app
+COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
+COPY . /app
+RUN mv /app/config-prod.yml /app/config.yml
+ENV PYTHONUNBUFFERED=1
 EXPOSE 80
 ENTRYPOINT ["python"]
 CMD ["web.py"]
