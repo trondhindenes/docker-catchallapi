@@ -3,6 +3,7 @@ from flask_restful import Resource
 from flask import request
 import socket
 import logging
+import json
 
 
 logger = logging.getLogger('returnpath')
@@ -35,6 +36,7 @@ class ApiCatchAll(Resource):
             'headers': out_headers,
             'local_computer_name': node_name
         }
+        print(json.dumps(return_obj, indent=4, sort_keys=True))
         return return_obj
 
     def post(self, path=None):
@@ -78,6 +80,7 @@ class ApiCatchAll(Resource):
                 'values': request_values
             }
         }
+        print(json.dumps(return_obj, indent=4, sort_keys=True))
         return return_obj
 
 api.add_resource(ApiCatchAll, '/', '/<path:path>')

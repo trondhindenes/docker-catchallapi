@@ -1,7 +1,7 @@
 import logging
 
 def setup_custom_logger(logging_level):
-    logger = logging.getLogger('vmnamegenerator')
+    logger = logging.getLogger('catchall')
     ch = logging.StreamHandler()
     formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s')
     ch.setFormatter(formatter)
