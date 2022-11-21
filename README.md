@@ -3,6 +3,9 @@
 Simple rest api which responds with lots of information about the incoming request. Use it to troubleshoot/test microservice routing and other things.
 By default it listens on port 80, can be overriden by setting the LISTEN_PORT environment variable.
 
+If you set the environment variable `SHOW_ENVVARS` to `TRUE`, environment vars will also be printed.
+Be careful with this, so you don't leak any sensitive information.
+
 ### Supported http methods:
 GET and POST
 
