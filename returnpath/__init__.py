@@ -11,11 +11,12 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 CORS(app)
 
-config = ConfigHelper.get_config_path('config.yml')
+#config = ConfigHelper.get_config_path('config.yml')
 
-appconfig = {}
-appconfig['logging_level'] = ConfigHelper.get_config_variable(config, 'logging_level', format='yaml')
-logger = log.setup_custom_logger(appconfig['logging_level'])
+#appconfig = {}
+#appconfig['logging_level'] = ConfigHelper.get_config_variable(config, 'logging_level', format='yaml')
+#logger = log.setup_custom_logger(appconfig['logging_level'])
+logger = log.setup_custom_logger('info')
 
 app.config['BUNDLE_ERRORS'] = True
 api = Api(app)

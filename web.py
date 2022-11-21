@@ -1,4 +1,4 @@
-from returnpath import app, config
+from returnpath import app
 import os
 import cherrypy
 

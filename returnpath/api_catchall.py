@@ -1,12 +1,24 @@
-from returnpath import api
-from flask_restful import Resource
-from flask import request
-import socket
-import logging
 import json
+import logging
+import os
+import socket
 
+from flask import request
+from flask_restful import Resource
+
+from returnpath import api
 
 logger = logging.getLogger('returnpath')
+
+SHOW_ENVVARS = os.getenv('SHOW_ENVVARS', 'false').lower() == 'true'
+
+
+def get_envvars():
+    env_vars = {}
+    for name, value in os.environ.items():
+        env_vars[name] = value
+    return env_vars
+
 
 class ApiCatchAll(Resource):
     def get(self, path=None):
@@ -25,7 +37,6 @@ class ApiCatchAll(Resource):
             else:
                 out_headers[header] = headers[header]
 
-
         if path.startswith('/'):
             pass
         else:
@@ -36,6 +47,9 @@ class ApiCatchAll(Resource):
             'headers': out_headers,
             'local_computer_name': node_name
         }
+        if SHOW_ENVVARS:
+            return_obj['env'] = get_envvars()
+
         print(json.dumps(return_obj, indent=4, sort_keys=True))
         return return_obj
 
@@ -80,7 +94,10 @@ class ApiCatchAll(Resource):
                 'values': request_values
             }
         }
+        if SHOW_ENVVARS:
+            return_obj['env'] = get_envvars()
         print(json.dumps(return_obj, indent=4, sort_keys=True))
         return return_obj
+
 
 api.add_resource(ApiCatchAll, '/', '/<path:path>')

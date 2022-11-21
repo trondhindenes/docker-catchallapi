@@ -2,3 +2,5 @@ config.yml
 *.pyc
 .idea/*
 .vscode/*
+.env
+.venv
